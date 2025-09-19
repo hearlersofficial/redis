@@ -1,3 +1,0 @@
-redis:
-  service:
-    type: ClusterIP
