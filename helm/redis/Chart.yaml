@@ -1,0 +1,11 @@
+apiVersion: v2
+name: hearlers-redis
+description: A Helm chart for deploying Redis for Hearlers project
+type: application
+version: 0.1.0
+appVersion: "7.2.5" # Redis version
+
+dependencies:
+- name: redis
+  version: "18.1.5" # Latest version of the Bitnami Redis chart
+  repository: "https://charts.bitnami.com/bitnami"

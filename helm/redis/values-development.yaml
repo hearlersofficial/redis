@@ -1,0 +1,39 @@
+redis:
+  auth:
+    enabled: false
+  master:
+    replicaCount: 1
+    persistence:
+      enabled: false
+    resources:
+      requests:
+        cpu: 100m
+        memory: 256Mi
+      limits:
+        cpu: 500m
+        memory: 512Mi
+  replica:
+    replicaCount: 1
+    persistence:
+      enabled: false
+    resources:
+      requests:
+        cpu: 100m
+        memory: 256Mi
+      limits:
+        cpu: 500m
+        memory: 512Mi
+  service:
+    type: NodePort
+    ports:
+      redis: 6379
+    nodePorts:
+      redis: 30379
+  externalAccess:
+    enabled: true
+    service:
+      type: NodePort
+      ports:
+        redis: 6379
+      nodePorts:
+        redis: 30379
