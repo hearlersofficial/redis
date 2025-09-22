@@ -1,37 +1,39 @@
-architecture: standalone
+ redis:
+  architecture: standalone
 
-auth:
-  enabled: false
-
-
-master:
-  persistence:
+  auth:
     enabled: false
-  resources:
-    requests:
-      memory: 128Mi
-      cpu: 100m
-    limits:
-      memory: 256Mi
-      cpu: 200m
-  service:
-    type: NodePort
-    ports:
-      redis: 6379
-    nodePorts:
-      redis: "30379"
 
 
-replica:
-  replicaCount: 0
+  master:
+    count: 1
+    persistence:
+      enabled: false
+    resources:
+      requests:
+        memory: 128Mi
+        cpu: 100m
+      limits:
+        memory: 256Mi
+        cpu: 200m
+    service:
+      type: NodePort
+      ports:
+        redis: 6379
+      nodePorts:
+        redis: "30379"
 
-global:
-  redis:
-    password: ""
-  storageClass: ""
+
+  replica:
+    replicaCount: 0
+
+  global:
+    redis:
+      password: ""
+    storageClass: ""
 
 
-serviceAccount:
-  create: true
-  name: ""
+  serviceAccount:
+    create: true
+    name: ""
 
